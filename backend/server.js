@@ -1,16 +1,22 @@
-const express = require("express")
-const app = express()
-require("dotenv").config()
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 4000;
 
-app.use(express.json())
+app.use(express.json());
 
-const PORT = process.env.PORT || 4000
+// <-- Database Connection -->
+const datBase = require("./config/dataBase");
+datBase();
 
-// Database Connection 
-const datBase = require("./config/dataBase")
-datBase()
+// <-- Import Routes -->
+const authRoutes = require("./routes/Auth.routes")
 
-// Server Start 
-app.listen(PORT, ()=>{
-    console.log(`Server started at ${PORT}`);
-})
+
+// <-- API Mount -->
+app.use("/api/v1/auth", authRoutes);
+
+// <-- Server Start -->
+app.listen(PORT, () => {
+  console.log(`Server started at ${PORT}`);
+});
