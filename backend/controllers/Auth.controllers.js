@@ -6,7 +6,6 @@ const mailSender = require("../utils/mailSender.utils");
 const otpTemplate = require("../mails/emailVerificationTemplate");
 const { passwordUpdated } = require("../mails/passwordUpdateTemplate");
 const jwt = require("jsonwebtoken");
-const cookie = require("cookie-parser");
 
 // <-- Send OTP Handler -->
 exports.sendOtp = async (req, res) => {
@@ -178,6 +177,7 @@ exports.login = async (req, res) => {
         expiresIn: process.env.JWT_TOKEN_EXPIRY,
       });
       foundUser.token = token;
+      foundUser.password = undefined;
 
       // Create cookie and send response
       const options = {

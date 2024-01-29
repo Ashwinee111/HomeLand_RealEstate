@@ -1,9 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
+app.use(cookieParser())
+app.use(express.urlencoded({ extended: true }));
 
 // <-- Database Connection -->
 const datBase = require("./config/dataBase");
