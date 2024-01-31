@@ -1,8 +1,7 @@
-import "./App.css";
-import Pages from "./components/pages/Pages";
+import React from 'react';
 
-function App() {
-  return <Pages />;
-}
+const App = () => {
+  return <div className='bg-green-300'>Hello Ji</div>;
+};
 
 export default App;
