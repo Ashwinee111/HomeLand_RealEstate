@@ -13,7 +13,7 @@ function CountryDropdown() {
     const allCountries = houses.map((house) => {
       return house.country;
     });
-    const uniqueCountries = ["Location (any)", ...new Set(allCountries)]; // remove duplicates countries
+    const uniqueCountries = ["Location (any)", ...new Set(allCountries)]; // remove duplicates
     dispatch(setCountries(uniqueCountries));
   }, []);
 
@@ -29,9 +29,9 @@ function CountryDropdown() {
           <div className="text-[13px]">Select your place</div>
         </div>
         {isOpen ? (
-          <RiArrowDownSLine className="dropdown-icon-secondary" />
-        ) : (
           <RiArrowUpSLine className="dropdown-icon-secondary" />
+        ) : (
+          <RiArrowDownSLine className="dropdown-icon-secondary" />
         )}
       </Menu.Button>
       <Menu.Items className="dropdown-menu">
