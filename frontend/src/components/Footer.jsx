@@ -1,17 +1,17 @@
 import { BiBuildingHouse } from "react-icons/bi";
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FiFacebook } from "react-icons/fi";
+import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 
 function Footer() {
-
-  const fullYear = new Date()
-  const year = fullYear.getFullYear()
+  const fullYear = new Date();
+  const year = fullYear.getFullYear();
 
   return (
     <div className="container mx-auto">
       <footer>
-        <div className="flex flex-wrap gap-2 pb-5">
+        <div className="flex flex-wrap gap-4 pb-5">
           <div className="flex-1 basis-[10rem]">
             {/* Logo */}
             <NavLink to={"/"}>
@@ -26,22 +26,24 @@ function Footer() {
               </p>
               <div className="gap-4 flex my-4">
                 <div className="icon-box bg-dark-light hover:bg-hover-color-dark">
-                  <FiFacebook color="#4267B2"/>
+                  <FiFacebook color="#4267B2" />
                 </div>
 
                 <div className="icon-box bg-dark-light hover:bg-hover-color-dark">
-                  <FaTwitter color="#1DA1F2"/>
+                  <FaTwitter color="#1DA1F2" />
                 </div>
 
                 <div className="icon-box bg-dark-light hover:bg-hover-color-dark">
-                  <FaInstagram color="#E4405F"/>
+                  <FaInstagram color="#E4405F" />
                 </div>
 
                 <div className="icon-box bg-dark-light hover:bg-hover-color-dark">
-                  <FaLinkedin color="#0077b5"/>
+                  <FaLinkedin color="#0077b5" />
                 </div>
               </div>
-              <p className="text-gray-600 text-[15px]">© {year} All rights reserved.</p>
+              <p className="text-gray-600 text-[15px]">
+                © {year} All rights reserved.
+              </p>
             </div>
           </div>
 
@@ -102,18 +104,23 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="flex-1 basis-[10rem] text-center md:text-left">
+          <div className="flex-1 basis-[10rem] md:text-left">
             <h2 className="text-lg font-semibold max-w-[260px]">Subscribe</h2>
             <p className="my-2 text-gray-600 text-[15px]">
               Subscribe to get latest property, blog news from us.
             </p>
-            <div className="justify-center my-3 flex-align-center">
+            <div className="flex justify-between items-center my-3 border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-2 h-14 text-sm">
               <input
                 type="text"
-                className="px-4 py-[0.35rem] card-bordered dark:shadow-none outline-none bg-transparent rounded-lg border-dark"
-                placeholder="Email Address.."
+                placeholder="Email Address*"
+                className="outline-none"
               />
-              <button className="-ml-2 btn btn-primary">subscribe</button>
+              <button
+                type="button"
+                className="flex justify-center items-center w-[50px] h-[50px] p-2 text-[2.5rem] text-white bg-violet-500 hover:bg-violet-600 border rounded-full transition"
+              >
+                <HiOutlineArrowLongRight />
+              </button>
             </div>
           </div>
         </div>
