@@ -9,7 +9,9 @@ function Login() {
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
-  const submitContactForm = async (data) => {};
+  const submitContactForm = async (data) => {
+    console.log(data);
+  };
 
   // if form is successfully submitted then reset the form state
   useEffect(() => {

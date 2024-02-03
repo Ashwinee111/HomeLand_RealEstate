@@ -9,7 +9,10 @@ function SignUp() {
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
-  const submitContactForm = async (data) => {};
+  const submitContactForm = async (data) => {
+    // TODO: Logic
+    console.log(data);
+  };
 
   // if form is successfully submitted then reset the form state
   useEffect(() => {
