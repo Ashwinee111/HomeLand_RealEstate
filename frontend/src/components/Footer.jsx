@@ -110,7 +110,7 @@ function Footer() {
               <p className="my-2 text-gray-600 text-[15px]">
                 Subscribe to get latest property, blog news from us.
               </p>
-              <div className="flex justify-between items-center my-3 border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-2 h-14 text-sm">
+              <div className="flex justify-between items-center my-3 border border-gray-300 focus:border-violet-700 outline-none rounded w-full pl-2 h-14 text-sm">
                 <input
                   type="text"
                   placeholder="Email Address*"
@@ -118,7 +118,7 @@ function Footer() {
                 />
                 <button
                   type="button"
-                  className="flex justify-center items-center w-[50px] h-[50px] p-2 text-[2.5rem] text-white bg-violet-500 hover:bg-violet-600 border rounded-full transition"
+                  className="flex justify-center items-center w-[50px] h-[100%] p-2 text-[2.5rem] text-white bg-violet-600 hover:bg-violet-500 border rounded-r-md  transition"
                 >
                   <HiOutlineArrowLongRight />
                 </button>

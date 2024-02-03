@@ -1,6 +1,87 @@
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+
 function Login() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm();
+
+  const submitContactForm = async (data) => {};
+
+  // if form is successfully submitted then reset the form state
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        email: "",
+        password: "",
+      });
+    }
+  }, [reset, isSubmitSuccessful]);
+
   return (
-    <div>Login</div>
-  )
+    <div className="container mx-auto">
+      <div className="flex flex-col justify-center items-center pb-[3rem]">
+        <h2 className="text-[1.3rem] font-medium mb-8">Login</h2>
+        {/* SignUp Form */}
+        <div className="lg:w-[50%]">
+          <form
+            onSubmit={handleSubmit(submitContactForm)}
+            className="flex flex-col gap-y-4"
+          >
+            {/* email */}
+            <div>
+              <label htmlFor="email">
+                Email <sup className="text-rose-600">*</sup>
+              </label>{" "}
+              <br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter email address"
+                {...register("email", { required: true })}
+                className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm mt-1"
+              />
+              {errors.email && (
+                <span className="text-rose-600">Enter email address</span>
+              )}
+            </div>
+            {/* password */}
+            <div className="flex flex-col gap-y-3 justify-between md:flex-row gap-x-3">
+              <div className="w-full">
+                <label htmlFor="password">
+                  Password <sup className="text-rose-600">*</sup>
+                </label>{" "}
+                <br />
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Enter password"
+                  {...register("password", { required: true })}
+                  className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm mt-1"
+                />
+                {errors.password && (
+                  <span className="text-rose-600">Please enter password</span>
+                )}
+              </div>
+            </div>
+            {/* button */}
+            <div>
+              <button
+                type="submit"
+                className="bg-violet-700 hover:bg-violet-800 text-white rounded p-4 text-sm w-full transition"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }
-export default Login
+export default Login;
