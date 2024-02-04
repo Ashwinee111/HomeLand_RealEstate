@@ -56,7 +56,7 @@ exports.passwordUpdated = (email, name) => {
       <body>
           <div class="container">
           <a href="#"><img class="logo"
-                      src="https://res.cloudinary.com/dd8zpyf5j/image/upload/v1706329929/hrhp5dmbnzxplthnio9d.png" alt="StudyNotion Logo"></a>
+                      src="https://res.cloudinary.com/dd8zpyf5j/image/upload/v1707057990/tsf3jxcxwrjtnb7nzdcg.png" alt="StudyNotion Logo"></a>
               <div class="message">Password Update Confirmation</div>
               <div class="body">
                   <p>Hey ${name},</p>

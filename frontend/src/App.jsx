@@ -19,9 +19,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/property" element={<Property />} />
-          <Route path="/property/:id" element={<PropertyDetails />} />
           <Route path="/contact" element={<Contact />} />
+          {/* ===== Privet Route ===== */}
+          <Route path="/property" element={<Property />} /> 
+          <Route path="/property/:id" element={<PropertyDetails />} />
+          {/* ======================== */}
         </Routes>
         <Footer />
       </div>

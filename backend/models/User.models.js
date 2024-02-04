@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema(
     token: {
       type: String,
     },
+    frogetPasswordExpires: {
+      type: Date,
+    },
     image: {
       type: String,
     },

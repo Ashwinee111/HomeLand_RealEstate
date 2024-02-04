@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -10,10 +13,16 @@ function Login() {
   } = useForm();
 
   const submitContactForm = async (data) => {
-    console.log(data);
+    // ============ * NOT RECOMMENDATION * ============
+    // const res = await fetch("/api/v1/auth/login", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(data),
+    // });
+    // ================================================
   };
 
-  // if form is successfully submitted then reset the form state
+  // If form is successfully submitted then reset the form state
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({
