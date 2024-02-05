@@ -1,6 +1,11 @@
-const User = require('("../models/User.models")');
+const User = require("../models/User.models")
 const mailSender = require("../utils/mailSender.utils");
 const bcrypt = require("bcrypt");
+const crypto = require("crypto");
+
+// NOTE: Create a token and send the email to the user.
+// NOTE: There will be a link inside the mail. By clicking on the same link the user will change their password.
+
 
 // <-- ForgetPassword Token Handler -->
 exports.forgetPasswordToken = async (req, res) => {

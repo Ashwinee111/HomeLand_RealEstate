@@ -2,14 +2,16 @@ import { NavLink } from "react-router-dom";
 import { BiBuildingHouse } from "react-icons/bi";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const { token } = useSelector((state) => state.AuthSlice);
 
   return (
     <header className="py-4 mb-10 border-b bg-white">
       <div className="container mx-auto flex justify-between items-center relative">
-        {/* Logo */}
+        {/* NavLogo */}
         <NavLink to={"/"}>
           <div className="flex justify-center items-center">
             <BiBuildingHouse size={35} color="#7f56d9" />
@@ -54,20 +56,26 @@ function Header() {
               Contact Us
             </NavLink>
           </nav>
-          {/* Button */}
-          <div className="flex flex-col items-start gap-y-3 md:items-center md:flex-row md:gap-x-6">
-            <NavLink
-              to={"/login"}
-              className="hover:text-violet-900 transition pt-2 md:pt-0"
-            >
-              Login
-            </NavLink>
-            <NavLink
-              to={"/signup"}
-              className="bg-violet-700 hover:bg-violet-800 text-white px-3 py-2 rounded-lg transition"
-            >
-              Sign Up
-            </NavLink>
+          {/* NavButton */}
+          <div>
+            {token === null ? (
+              <div className="flex flex-col items-start gap-y-3 md:items-center md:flex-row md:gap-x-6">
+                <NavLink
+                  to={"/login"}
+                  className="hover:text-violet-900 transition pt-2 md:pt-0"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to={"/signup"}
+                  className="bg-violet-700 hover:bg-violet-800 text-white px-3 py-2 rounded-lg transition"
+                >
+                  Sign Up
+                </NavLink>
+              </div>
+            ) : (
+              <div>Hello</div>
+            )}
           </div>
         </div>
         {/* Mobile menu icon */}
