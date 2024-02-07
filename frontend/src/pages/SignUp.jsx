@@ -1,7 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import {useDispatch} from "react-redux"
+import { setSignupData } from "../redux/slices/AuthSlice";
+import { sendotp } from "../services/operations/authApi";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -10,8 +19,22 @@ function SignUp() {
   } = useForm();
 
   const submitContactForm = async (data) => {
-    // TODO: Logic
-    console.log(data);
+    try {
+        if (data.password !== data.confirmPassword) {
+          toast.error("Passwords not match");
+          return;
+        }
+
+        const signUpData = {
+          ...data,
+        };
+        
+      dispatch(setSignupData(signUpData))
+      dispatch(sendotp(signUpData.email , navigate))
+    } 
+    catch (error) {
+      console.error(error);
+    }
   };
 
   // if form is successfully submitted then reset the form state
@@ -94,36 +117,56 @@ function SignUp() {
             </div>
             {/* password and confirmpassword */}
             <div className="flex flex-col gap-y-3 justify-between md:flex-row gap-x-3">
-              <div className="w-full">
+              <div className="w-full relative">
                 <label htmlFor="password">
                   Create Password <sup className="text-rose-600">*</sup>
                 </label>{" "}
                 <br />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   id="password"
                   placeholder="Enter password"
                   {...register("password", { required: true })}
                   className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm mt-1"
                 />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-[50%] z-[10] cursor-pointer"
+                >
+                  {showPassword ? (
+                    <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  ) : (
+                    <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  )}
+                </span>
                 {errors.password && (
                   <span className="text-rose-600">Please enter password</span>
                 )}
               </div>
-              <div className="w-full">
+              <div className="w-full relative">
                 <label htmlFor="confirmPassword">
                   ConfirmPassword <sup className="text-rose-600">*</sup>
                 </label>{" "}
                 <br />
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
                   id="confirmPassword"
                   placeholder="Enter confirm password"
                   {...register("confirmPassword", { required: true })}
                   className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm mt-1"
                 />
+                <span
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-[50%] z-[10] cursor-pointer"
+                >
+                  {showConfirmPassword ? (
+                    <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  ) : (
+                    <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                  )}
+                </span>
                 {errors.confirmPassword && (
                   <span className="text-rose-600">
                     Please enter confirm password

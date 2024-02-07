@@ -178,6 +178,7 @@ exports.login = async (req, res) => {
       });
       foundUser.token = token;
       foundUser.password = undefined;
+      foundUser.confirmPassword = undefined;
 
       // Create cookie and send response
       const options = {

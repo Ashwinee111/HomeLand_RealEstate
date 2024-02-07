@@ -36,7 +36,7 @@ exports.forgetPasswordToken = async (req, res) => {
     );
 
     // Create ForgetPassword url link
-    const forgetPasswordUrl = `http://localhost:5173/forget-password/${forgetPasswordToken}`;
+    const forgetPasswordUrl = `http://localhost:5173/updatepassword/${forgetPasswordToken}`;
 
     // Send mail
     await mailSender(
