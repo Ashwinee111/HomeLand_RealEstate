@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 import { BiBuildingHouse } from "react-icons/bi";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
+import ProfileDropDown from "./ProfileDropDown";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -58,7 +59,7 @@ function Header() {
           </nav>
           {/* NavButton */}
           <div>
-            {token === null ? (
+            {token === null && (
               <div className="flex flex-col items-start gap-y-3 md:items-center md:flex-row md:gap-x-6">
                 <NavLink
                   to={"/login"}
@@ -73,10 +74,12 @@ function Header() {
                   Sign Up
                 </NavLink>
               </div>
-            ) : (
-              <div>Hello</div>
             )}
           </div>
+        </div>
+        {/* Profile image */}
+        <div className={token === null ? "hidden" : ""}>
+          {token !== null && <ProfileDropDown />}
         </div>
         {/* Mobile menu icon */}
         <div onClick={() => setOpen(!open)} className="md:hidden">

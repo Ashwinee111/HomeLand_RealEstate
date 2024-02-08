@@ -95,7 +95,7 @@ export function login(email, password, navigate) {
       const userImage = response.data?.foundUser?.image
         ? response.data.foundUser.image
         : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.foundUser.firstName} ${response.data.foundUser.lastName}`;
-      dispatch(setUser({ ...response.data.foundUser, image: userImage }));
+      dispatch(setUser({ ...response.data.foundUser}));
 
       localStorage.setItem("token", JSON.stringify(response.data.token));
       localStorage.setItem("user", JSON.stringify(response.data.foundUser));
@@ -113,12 +113,17 @@ export function login(email, password, navigate) {
 // <-- LogOut API Call -->
 export function logout(navigate) {
   return async (dispatch) => {
-    dispatch(setToken(null));
-    dispatch(setUser(null));
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    toast.success("Logged Out");
-    navigate("/");
+    try {
+      dispatch(setToken(null));
+      dispatch(setUser(null));
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      toast.success("Logged Out");
+      navigate("/");
+    } 
+    catch (error) {
+      console.log(error.message);
+    }
   };
 }
 
