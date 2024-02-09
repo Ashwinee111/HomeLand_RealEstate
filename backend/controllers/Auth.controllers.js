@@ -50,8 +50,7 @@ exports.sendOtp = async (req, res) => {
       message: `OTP send successfully. Please check your ${email} email `,
       otp,
     });
-  } 
-  catch (error) {
+  } catch (error) {
     console.log(error.message);
     res.status(401).json({
       success: false,
@@ -135,8 +134,7 @@ exports.signup = async (req, res) => {
       user,
       message: "User created successfully",
     });
-  } 
-  catch (error) {
+  } catch (error) {
     console.log(error.message),
       res.status(401).json({
         success: false,
@@ -197,8 +195,7 @@ exports.login = async (req, res) => {
         message: "Password is incorrect",
       });
     }
-  } 
-  catch (error) {
+  } catch (error) {
     console.log(error.message),
       res.status(401).json({
         success: false,
@@ -256,8 +253,7 @@ exports.changePassword = async (req, res) => {
           `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
         )
       );
-    } 
-    catch (error) {
+    } catch (error) {
       // If there's an error sending the email
       return res.status(403).json({
         success: false,
@@ -270,8 +266,7 @@ exports.changePassword = async (req, res) => {
       success: true,
       message: "Password updated successfully",
     });
-  } 
-  catch (error) {
+  } catch (error) {
     return res.status(401).json({
       success: false,
       message: "Error occurred while updating password",

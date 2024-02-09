@@ -12,7 +12,7 @@ function ProfileDropDown() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative" onClick={() => setOpen(!open)}>
+    <div className="relative cursor-pointer" onClick={() => setOpen(!open)} >
       <div className="flex items-center">
         <div>
           <img
@@ -31,7 +31,7 @@ function ProfileDropDown() {
           open ? null : "hidden"
         } absolute top-[118%] right-[-30px] z-[1000] divide-y-[1px] divide-white overflow-hidden rounded-md bg-violet-600`}
       >
-        <Link to="/dashboard/my-profile">
+        <Link to="/dashboard/myprofile">
           <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-white hover:bg-violet-700 hover:text-slate-100">
             <VscDashboard className="text-lg" />
             Dashboard

@@ -14,6 +14,8 @@ import Error from "./pages/Error";
 import ForgotPassword from "./pages/ForgotPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
+import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -39,6 +41,22 @@ function App() {
             element={
               <PrivateRoute>
                 <PropertyDetails />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/myprofile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/settings"
+            element={
+              <PrivateRoute>
+                <EditProfile />
               </PrivateRoute>
             }
           />

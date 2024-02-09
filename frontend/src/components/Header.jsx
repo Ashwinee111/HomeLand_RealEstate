@@ -10,7 +10,7 @@ function Header() {
   const { token } = useSelector((state) => state.AuthSlice);
 
   return (
-    <header className="py-4 mb-10 border-b bg-white">
+    <header className="py-4 mb-10 border-b">
       <div className="container mx-auto flex justify-between items-center relative">
         {/* NavLogo */}
         <NavLink to={"/"}>
