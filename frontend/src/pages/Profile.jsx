@@ -10,7 +10,7 @@ function Profile() {
   return (
     <div className="container mx-auto flex flex-col items-center justify-center py-16 mb-10">
       <div>
-        <h2 className="mb-8 text-2xl font-medium">My Profile</h2>
+        <h2 className="mb-8 text-3xl font-medium">My Profile</h2>
       </div>
       <div className="w-[500px] p-8 flex flex-col items-center gap-y-5 border rounded-xl">
         <div className="border rounded-full p-1 mb-5">

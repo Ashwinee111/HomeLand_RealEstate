@@ -13,6 +13,6 @@ export const endPoints = {
 // SETTINGS PAGE API
 export const settingsEndpoints = {
   UPDATE_DISPLAY_PICTURE_API: BASE_URL + "/profile/updateDisplayPicture",
-  CHANGE_PASSWORD_API: BASE_URL + "/auth/changePassword",
+  CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
   DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
 };
