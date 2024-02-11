@@ -1,11 +1,10 @@
-const User = require("../models/User.models")
+const User = require("../models/User.models");
 const mailSender = require("../utils/mailSender.utils");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 
 // NOTE: Create a token and send the email to the user.
 // NOTE: There will be a link inside the mail. By clicking on the same link the user will change their password.
-
 
 // <-- ForgetPassword Token Handler -->
 exports.forgetPasswordToken = async (req, res) => {
@@ -36,7 +35,7 @@ exports.forgetPasswordToken = async (req, res) => {
     );
 
     // Create ForgetPassword url link
-    const forgetPasswordUrl = `https://realestate-backend-jcyc.onrender.com/updatepassword/${forgetPasswordToken}`;
+    const forgetPasswordUrl = `https://real-estate-mern-tau.vercel.app/updatepassword/${forgetPasswordToken}`;
 
     // Send mail
     await mailSender(
@@ -49,16 +48,13 @@ exports.forgetPasswordToken = async (req, res) => {
       success: true,
       message: "Email sent successfully, Please check your email",
     });
-  } 
-  catch (error) {
+  } catch (error) {
     return res.status(500).json({
       success: false,
       message: "Something went wrong while the forget password token was sent",
     });
   }
 };
-
-
 
 // <-- ForgetPassword Handler -->
 exports.forgetPassword = async (req, res) => {
@@ -108,11 +104,10 @@ exports.forgetPassword = async (req, res) => {
       success: true,
       message: "Password reset successfully",
     });
-  } 
-  catch (error) {
+  } catch (error) {
     return res.status(500).json({
-        success: false,
-        messgae: "Something went wrong while forget password",
-      });
+      success: false,
+      messgae: "Something went wrong while forget password",
+    });
   }
 };
