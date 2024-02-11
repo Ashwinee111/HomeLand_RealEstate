@@ -35,7 +35,7 @@ exports.forgetPasswordToken = async (req, res) => {
     );
 
     // Create ForgetPassword url link
-    const forgetPasswordUrl = `https://real-estate-mern-tau.vercel.app/updatepassword/${forgetPasswordToken}`;
+    const forgetPasswordUrl = `https://home-land-real-estate.vercel.app/updatepassword/${forgetPasswordToken}`;
 
     // Send mail
     await mailSender(
