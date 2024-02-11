@@ -36,7 +36,7 @@ exports.forgetPasswordToken = async (req, res) => {
     );
 
     // Create ForgetPassword url link
-    const forgetPasswordUrl = `http://localhost:5173/updatepassword/${forgetPasswordToken}`;
+    const forgetPasswordUrl = `https://realestate-backend-jcyc.onrender.com/updatepassword/${forgetPasswordToken}`;
 
     // Send mail
     await mailSender(
