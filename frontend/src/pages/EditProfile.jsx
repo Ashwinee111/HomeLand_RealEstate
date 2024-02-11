@@ -1,6 +1,7 @@
 import ChangePassword from "../components/ChangePassword";
 import ChangeProfilePicture from "../components/ChangeProfilePicture";
 import DeleteAccount from "../components/DeleteAccount";
+import ProfileInformation from "../components/ProfileInformation";
 
 
 function EditProfile() {
@@ -11,6 +12,7 @@ function EditProfile() {
       </div>
       <div className="w-[80%]">
         <ChangeProfilePicture />
+        <ProfileInformation />
         <ChangePassword />
         <DeleteAccount />
       </div>
