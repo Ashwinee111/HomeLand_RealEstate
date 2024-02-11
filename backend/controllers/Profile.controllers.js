@@ -1,7 +1,6 @@
 const User = require("../models/User.models");
 const { uploadImageToCloudinary } = require("../utils/imageUploader.utils");
 
-
 // <-- UpdateDisplayPicture Handler -->
 exports.updateDisplayPicture = async (req, res) => {
   try {
@@ -52,12 +51,11 @@ exports.deleteProfile = async (req, res) => {
       success: true,
       message: "Profile deleted successfully",
     });
-  } 
-  catch (error) {
+  } catch (error) {
     res.status(500).json({
-        success: false,
-        message: "Something went wrong while deleting profile"
-    })
+      success: false,
+      message: "Something went wrong while deleting profile",
+    });
   }
 };
 
@@ -65,7 +63,7 @@ exports.deleteProfile = async (req, res) => {
 // exports.getAllDetails = async(req, res) => {
 //     try {
 //         const userId = req.foundUser.id;
-        
+
 //         if (!userId) {
 //             return res.status(400).json({
 //                 success: true,
@@ -80,7 +78,7 @@ exports.deleteProfile = async (req, res) => {
 //             message: "Data fetched successfully.",
 //             data: userDetails,
 //         });
-//     } 
+//     }
 //     catch (error) {
 //         return res.status(500).json({
 //             success: false,
@@ -88,3 +86,31 @@ exports.deleteProfile = async (req, res) => {
 //         });
 //     }
 // }
+
+// <-- UpdateProfile Handler -->
+exports.updateProfile = async (req, res) => {
+  try {
+    const { firstName, lastName } = req.body;
+    const userId = req.foundUser.id;
+
+    // const user = await User.findById(userId);
+
+    const updateUser = await User.findByIdAndUpdate(
+      { _id: userId },
+      { firstName, lastName },
+      { new: true }
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Profile updated successfully",
+      updateUser
+    });
+  } 
+  catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong while updating the profile",
+    });
+  }
+};
