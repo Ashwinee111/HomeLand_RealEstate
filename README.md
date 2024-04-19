@@ -1,12 +1,12 @@
 
-# HomeLand
+# Homeland
 
-Home Land website is an online platform that enables users to rent houses and apartments for personal or business use. The website provides an intuitive user interface for searching, comparing and reserving properties.
+Home Land website is an online platform that enables users to rent houses and apartments for personal or business use. The website provides an intuitive user interface for searching, comparing, and reserving properties.
 
-🚀 This web application built using React JS, Tailwind CSS, Node JS, Express JS, and MongoDB.
+🚀 This web application is built using React JS, Tailwind CSS, Node JS, Express JS, and MongoDB.
 ## Features
 
-- **Sign Up:** Users can create a new account by providing required information.
+- **Sign Up:** Users can create a new account by providing the required information.
 - **Sign In:** Registered users can log in to their accounts securely.
 - **Forgot Password:** Option to reset password via email with OTP verification.
 - **Reset Password:** Users can change their passwords securely.
