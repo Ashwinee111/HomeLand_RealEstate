@@ -3,7 +3,7 @@
 
 Home Land website is an online platform that enables users to rent houses and apartments for personal or business use. The website provides an intuitive user interface for searching, comparing, and reserving properties.
 
-🚀 This web application is built using React JS, Tailwind CSS, Node JS, Express JS, and MongoDB.
+🚀 This web application is built using **React JS**, **Tailwind CSS**, **Node JS**, **Express JS**, and **MongoDB**.
 ## Features
 
 - **Sign Up:** Users can create a new account by providing the required information.
