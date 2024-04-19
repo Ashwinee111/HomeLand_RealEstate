@@ -29,4 +29,4 @@ Home Land website is an online platform that enables users to rent houses and ap
 
 - Navigate to the project directory: cd homeland
 - Install dependencies: npm install
-- Start the development server: npm start
+- Start the development server: npm run dev
